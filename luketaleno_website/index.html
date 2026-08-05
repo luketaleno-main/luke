@@ -158,9 +158,43 @@
   footer .fsoc{display:flex;gap:18px;justify-content:center;margin:14px 0;font-weight:700}
   footer a:hover{color:var(--cyan)}
   .center{text-align:center}
+  /* VOTE BAR (sticky, above nav) */
+  .votebar{position:sticky;top:0;z-index:80;display:block;text-align:center;text-decoration:none;color:#0a0a1e;font-weight:800;letter-spacing:.05em;text-transform:uppercase;font-size:.9rem;padding:11px 14px;line-height:1.35;background:linear-gradient(90deg,#ff2196,#9a4bff,#00e6f6,#ff2196);background-size:300% 100%;animation:barflow 7s linear infinite}
+  @keyframes barflow{0%{background-position:0 0}100%{background-position:300% 0}}
+  /* VOTE SPLASH takeover */
+  #voteSplash{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;text-align:center;background:radial-gradient(circle at 50% 38%,#210c3a,#08081a 72%);transition:transform .75s cubic-bezier(.7,0,.15,1),opacity .75s ease}
+  #voteSplash.hide{transform:translateY(-100%);opacity:0;pointer-events:none}
+  #voteSplash::before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(255,33,150,.28),rgba(0,230,246,.24));mix-blend-mode:screen;animation:flashbg 2s ease-in-out infinite;pointer-events:none}
+  @keyframes flashbg{0%,100%{opacity:.3}50%{opacity:.95}}
+  .vs-inner{position:relative;z-index:2;padding:24px}
+  .vs-kicker{color:var(--cyan);font-weight:800;letter-spacing:.26em;text-transform:uppercase;font-size:.8rem;margin-bottom:14px}
+  .vs-big{font-family:'Anton',sans-serif;font-size:clamp(4.5rem,22vw,13rem);line-height:.82;color:#fff;letter-spacing:2px;text-shadow:0 0 18px rgba(255,33,150,.85),0 0 46px rgba(0,230,246,.55);animation:vpulse 1s ease-in-out infinite}
+  @keyframes vpulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+  .vs-name{font-family:'Archivo Black',sans-serif;font-size:clamp(1.4rem,6vw,2.6rem);color:#fff;letter-spacing:2px;margin-top:8px}
+  .vs-date{font-family:'Anton',sans-serif;font-size:clamp(2rem,9vw,4.6rem);margin-top:12px;color:var(--pink);letter-spacing:1px;line-height:1}
+  .vs-date span{font-size:.5em;vertical-align:super}
+  .vs-app{margin-top:14px;color:#cfd3ec;font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:clamp(.85rem,2.6vw,1.1rem)}
+  .vs-btn{display:inline-block;margin-top:28px;background:var(--pink);color:#fff;font-weight:800;padding:14px 32px;border-radius:999px;text-decoration:none;box-shadow:0 12px 40px rgba(255,33,150,.5);animation:vpulse 1.5s ease-in-out infinite}
+  #voteSkip{position:absolute;top:16px;right:20px;z-index:3;background:none;border:none;color:#fff;font-size:2.1rem;line-height:1;cursor:pointer;opacity:.65}
+  #voteSkip:hover{opacity:1}
+  @media(prefers-reduced-motion:reduce){.vs-big,.vs-btn,.votebar,#voteSplash::before{animation:none}}
 </style>
 </head>
 <body>
+
+<div id="voteSplash" role="dialog" aria-label="Vote for Luke Taleno on August 18th">
+  <button id="voteSkip" aria-label="Close">&times;</button>
+  <div class="vs-inner">
+    <div class="vs-kicker">America's Got Talent · Live Shows</div>
+    <div class="vs-big">VOTE</div>
+    <div class="vs-name">LUKE TALENO</div>
+    <div class="vs-date">AUGUST 18<span>TH</span></div>
+    <div class="vs-app">on the NBC &amp; AGT app</div>
+    <a href="#vote" class="vs-btn" id="voteEnter">How to vote &rarr;</a>
+  </div>
+</div>
+
+<a href="#vote" class="votebar">Vote for Luke Taleno · August 18th · on the NBC &amp; AGT app</a>
 
 <nav>
   <div class="wrap">
@@ -186,11 +220,12 @@
     <p class="tag">Bilingual Artist · Performer · Hialeah, FL</p>
     <div class="stats">
       <div><b>5M+</b><span>Views / 7 days</span></div>
-      <div><b>61.8K</b><span>TikTok</span></div>
-      <div><b>25.8K</b><span>Instagram</span></div>
+      <div><b>84K</b><span>TikTok</span></div>
+      <div><b>42K</b><span>Instagram</span></div>
     </div>
     <div class="ctas">
-      <a href="#follow" class="btn btn-pink">Follow Luke</a>
+      <a href="#vote" class="btn btn-pink">Vote · Aug 18</a>
+      <a href="#follow" class="btn btn-cyan">Follow Luke</a>
       <a href="#watch" class="btn btn-cyan">Stream "Seat to Stage"</a>
     </div>
   </div>
@@ -215,14 +250,14 @@
     <div class="eyebrow">America's Got Talent</div>
     <h2>How to <span style="color:var(--cyan)">vote</span> for Luke Taleno on AGT</h2>
     <div class="panel">
-      <span class="soon">Voting opens during the Live Shows</span>
+      <span class="soon">Live Show · August 18th</span>
       <ol>
-        <li>Tune in to America's Got Talent for Luke's Live Show performance.</li>
+        <li>Tune in to America's Got Talent on <strong>August 18th</strong> for Luke's Live Show performance.</li>
         <li>Open the official <strong>America's Got Talent app</strong> or go to <strong>NBC.com/AGTVote</strong>.</li>
         <li>Find <strong>Luke Taleno</strong> and cast all 10 of your votes.</li>
         <li>Vote every night the window is open — and tell a friend.</li>
       </ol>
-      <a href="#" class="btn btn-pink" id="voteBtn">Vote link coming soon</a>
+      <a href="#" class="btn btn-pink" id="voteBtn">Vote via the NBC &amp; AGT app — Aug 18</a>
     </div>
   </div>
 </section>
@@ -308,6 +343,28 @@
   // When the official vote link is live, set it here and the button activates automatically:
   var VOTE_URL = ""; // e.g. "https://www.nbc.com/agt-vote"
   if(VOTE_URL){var b=document.getElementById('voteBtn');b.href=VOTE_URL;b.target="_blank";b.textContent="Vote for Luke Now";b.style.opacity=1;b.style.pointerEvents="auto";}
+
+  // Sticky vote bar sits above the nav — keep nav docked right below it
+  (function(){
+    var bar=document.querySelector('.votebar'), nav=document.querySelector('nav');
+    function sync(){ if(bar&&nav) nav.style.top=bar.offsetHeight+'px'; }
+    sync(); window.addEventListener('resize',sync);
+
+    // Full-screen flashy takeover that slides up into the header bar
+    var sp=document.getElementById('voteSplash');
+    if(!sp) return;
+    if(sessionStorage.getItem('voteSplashSeen')){ sp.parentNode.removeChild(sp); return; }
+    document.body.style.overflow='hidden';
+    function close(){
+      sp.classList.add('hide'); document.body.style.overflow='';
+      sessionStorage.setItem('voteSplashSeen','1');
+      setTimeout(function(){ if(sp&&sp.parentNode) sp.parentNode.removeChild(sp); },800);
+    }
+    var t=setTimeout(close,2800);
+    document.getElementById('voteSkip').addEventListener('click',function(){clearTimeout(t);close();});
+    document.getElementById('voteEnter').addEventListener('click',function(){clearTimeout(t);close();});
+    sp.addEventListener('click',function(e){ if(e.target===sp){clearTimeout(t);close();} });
+  })();
 </script>
 </body>
 </html>
