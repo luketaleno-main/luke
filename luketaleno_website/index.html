@@ -159,8 +159,9 @@
   footer a:hover{color:var(--cyan)}
   .center{text-align:center}
   /* VOTE BAR (sticky, above nav) */
-  .votebar{position:sticky;top:0;z-index:80;display:block;text-align:center;text-decoration:none;color:#0a0a1e;font-weight:800;letter-spacing:.05em;text-transform:uppercase;font-size:.9rem;padding:11px 14px;line-height:1.35;background:linear-gradient(90deg,#ff2196,#9a4bff,#00e6f6,#ff2196);background-size:300% 100%;animation:barflow 7s linear infinite}
+  .votebar{position:sticky;top:0;z-index:80;display:block;text-align:center;text-decoration:none;color:#0a0a1e;font-weight:800;letter-spacing:.07em;text-transform:uppercase;font-size:clamp(1rem,3vw,1.28rem);padding:16px 16px;line-height:1.3;background:linear-gradient(90deg,#ff2196,#9a4bff,#00e6f6,#ff2196);background-size:300% 100%;box-shadow:0 6px 26px rgba(255,33,150,.4);animation:barflow 7s linear infinite,barpulse 2.4s ease-in-out infinite}
   @keyframes barflow{0%{background-position:0 0}100%{background-position:300% 0}}
+  @keyframes barpulse{0%,100%{box-shadow:0 6px 22px rgba(255,33,150,.35);filter:brightness(1)}50%{box-shadow:0 9px 36px rgba(0,230,246,.5);filter:brightness(1.09)}}
   /* VOTE SPLASH takeover */
   #voteSplash{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;text-align:center;background:radial-gradient(circle at 50% 38%,#210c3a,#08081a 72%);transition:transform .75s cubic-bezier(.7,0,.15,1),opacity .75s ease}
   #voteSplash.hide{transform:translateY(-100%);opacity:0;pointer-events:none}
@@ -178,6 +179,14 @@
   #voteSkip{position:absolute;top:16px;right:20px;z-index:3;background:none;border:none;color:#fff;font-size:2.1rem;line-height:1;cursor:pointer;opacity:.65}
   #voteSkip:hover{opacity:1}
   @media(prefers-reduced-motion:reduce){.vs-big,.vs-btn,.votebar,#voteSplash::before{animation:none}}
+  /* SUPPORT / TIPS */
+  .support{background:linear-gradient(rgba(8,8,20,.74),rgba(8,8,20,.92)),url('cuba.jpg') center/cover no-repeat;border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center}
+  .support .note{max-width:620px;margin:0 auto 26px;color:var(--muted)}
+  .tipgrid{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin-top:6px}
+  .tipcard{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:18px;padding:24px;width:264px}
+  .tiphead{font-family:'Anton',sans-serif;font-size:1.35rem;letter-spacing:1px;margin-bottom:14px;color:#fff}
+  .tipqr{width:184px;height:184px;border-radius:12px;background:#fff;padding:8px;display:block;margin:0 auto 16px}
+  .tipqr.placeholder{display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.85rem;border:1px dashed var(--line);background:rgba(255,255,255,.03)}
 </style>
 </head>
 <body>
@@ -200,14 +209,14 @@
   <div class="wrap">
     <div class="brand">LUKE <b>TALENO</b></div>
     <div class="links">
-      <a href="#story">Story</a>
       <a href="#vote">Vote</a>
+      <a href="#support">Support</a>
+      <a href="#story">Story</a>
       <a href="#watch">Watch</a>
-      <a href="#freestyle">Freestyle</a>
       <a href="#follow">Follow</a>
       <a href="#press">Press</a>
     </div>
-    <a href="#follow" class="cta">Follow Luke</a>
+    <a href="#vote" class="cta">Vote · Aug 18</a>
   </div>
 </nav>
 
@@ -215,35 +224,16 @@
   <img src="pensive.jpg" alt="Luke Taleno seated on stage steps in dramatic red light and smoke — America's Got Talent Golden Buzzer artist from Hialeah" />
   <div class="scrim"></div>
   <div class="wrap inner">
-    <div class="eyebrow">America's Got Talent · Golden Buzzer</div>
-    <h1>LUKE<br><span class="c">TALENO</span></h1>
-    <p class="tag">Bilingual Artist · Performer · Hialeah, FL</p>
-    <div class="stats">
-      <div><b>5M+</b><span>Views / 7 days</span></div>
-      <div><b>84K</b><span>TikTok</span></div>
-      <div><b>42K</b><span>Instagram</span></div>
-    </div>
+    <div class="eyebrow">America's Got Talent · Live Shows</div>
+    <h1>VOTE FOR<br><span class="c">LUKE TALENO</span></h1>
+    <p class="tag">Live Show · <strong style="color:#fff">August 18th</strong> · cast all 10 votes on NBC &amp; the AGT app</p>
     <div class="ctas">
-      <a href="#vote" class="btn btn-pink">Vote · Aug 18</a>
-      <a href="#follow" class="btn btn-cyan">Follow Luke</a>
-      <a href="#watch" class="btn btn-cyan">Stream "Seat to Stage"</a>
+      <a href="#vote" class="btn btn-pink">How to vote &darr;</a>
+      <a href="#support" class="btn btn-cyan">Support Luke</a>
     </div>
+    <p style="margin-top:18px;color:var(--muted);font-size:.85rem;letter-spacing:.02em">AGT Golden Buzzer · 84K TikTok · 42K Instagram · Hialeah, FL</p>
   </div>
 </header>
-
-<section class="story" id="story">
-  <div class="wrap">
-    <div class="sec-head"><div class="eyebrow">The Story</div><h2>From the <span class="c">seat</span> to the stage</h2></div>
-    <p>A year before his audition, Luke Taleno sat in the America's Got Talent crowd and told Simon Cowell to watch for him — he'd be back for a Golden Buzzer. He delivered: performing his original "Seat to Stage" and flipping mid-song into Spanish for Sofía Vergara, he earned Howie Mandel's first Golden Buzzer of the season.</p>
-    <p>Born in Cuba and raised in Hialeah, Florida, Luke is a bilingual artist and storyteller who turns real life into music — and he bet everything on it, quitting his 9-to-5 with no backup plan. "Seat to Stage" is out now on all platforms, and the Golden Buzzer sends him straight to the Live Shows.</p>
-  </div>
-</section>
-
-<section class="band" style="background-image:linear-gradient(90deg,rgba(8,8,20,.9),rgba(8,8,20,.32)),url('hero.jpg');background-position:center 30%">
-  <div class="wrap inner">
-    <p class="q">"You are truly the image of what I believe authenticity is."<span>— Howie Mandel, on giving Luke the Golden Buzzer</span></p>
-  </div>
-</section>
 
 <section class="vote" id="vote">
   <div class="wrap">
@@ -259,6 +249,39 @@
       </ol>
       <a href="#" class="btn btn-pink" id="voteBtn">Vote via the NBC &amp; AGT app — Aug 18</a>
     </div>
+  </div>
+</section>
+
+<section class="support" id="support">
+  <div class="wrap">
+    <div class="sec-head center" style="margin-bottom:14px"><div class="eyebrow">Voting is free — this is optional</div><h2>Fuel the <span class="c">run</span></h2></div>
+    <p class="note">Voting for Luke on AGT is 100% free. If you want to support Luke on his journey directly, you can send a tip below — every bit helps!</p>
+    <div class="tipgrid">
+      <div class="tipcard">
+        <div class="tiphead">Cash App</div>
+        <img src="cashapp_qr.png" alt="Cash App QR code — scan to tip Luke at $luketalenolive" class="tipqr" />
+        <a href="https://cash.app/$luketalenolive" target="_blank" rel="noopener" class="btn btn-cyan">$luketalenolive</a>
+      </div>
+      <div class="tipcard">
+        <div class="tiphead">Venmo</div>
+        <img src="venmo_qr.png" alt="Venmo QR code — scan to tip Luke at @luketaleno" class="tipqr" />
+        <a href="https://venmo.com/u/luketaleno" target="_blank" rel="noopener" class="btn btn-cyan">@luketaleno</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="story" id="story">
+  <div class="wrap">
+    <div class="sec-head"><div class="eyebrow">The Story</div><h2>From the <span class="c">seat</span> to the stage</h2></div>
+    <p>A year before his audition, Luke Taleno sat in the America's Got Talent crowd and told Simon Cowell to watch for him — he'd be back for a Golden Buzzer. He delivered: performing his original "Seat to Stage" and flipping mid-song into Spanish for Sofía Vergara, he earned Howie Mandel's first Golden Buzzer of the season.</p>
+    <p>Born in Cuba and raised in Hialeah, Florida, Luke is a bilingual artist and storyteller who turns real life into music — and he bet everything on it, quitting his 9-to-5 with no backup plan. "Seat to Stage" is out now on all platforms, and the Golden Buzzer sends him straight to the Live Shows.</p>
+  </div>
+</section>
+
+<section class="band" style="background-image:linear-gradient(90deg,rgba(8,8,20,.9),rgba(8,8,20,.32)),url('hero.jpg');background-position:center 30%">
+  <div class="wrap inner">
+    <p class="q">"You are truly the image of what I believe authenticity is."<span>— Howie Mandel, on giving Luke the Golden Buzzer</span></p>
   </div>
 </section>
 
@@ -360,7 +383,7 @@
       sessionStorage.setItem('voteSplashSeen','1');
       setTimeout(function(){ if(sp&&sp.parentNode) sp.parentNode.removeChild(sp); },800);
     }
-    var t=setTimeout(close,2800);
+    var t=setTimeout(close,8000);
     document.getElementById('voteSkip').addEventListener('click',function(){clearTimeout(t);close();});
     document.getElementById('voteEnter').addEventListener('click',function(){clearTimeout(t);close();});
     sp.addEventListener('click',function(e){ if(e.target===sp){clearTimeout(t);close();} });
