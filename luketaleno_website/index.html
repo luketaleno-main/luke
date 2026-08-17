@@ -83,12 +83,11 @@
   nav .links a{color:var(--muted)} nav .links a:hover{color:var(--cyan)}
   nav .cta{background:var(--pink);color:#fff;padding:9px 18px;border-radius:999px;font-weight:800;font-size:.82rem}
   @media(max-width:780px){nav .links{display:none}}
-  @media(max-width:760px){.hero-photo{height:clamp(440px,64vh,720px)}.hero-photo img{object-position:center 30%}}
+  @media(max-width:760px){.hero-photo{height:clamp(380px,52vh,560px);background-size:155%;background-position:center 46%}}
 
   /* HERO */
   .hero{position:relative;background:var(--bg)}
-  .hero-photo{position:relative;height:clamp(440px,74vh,880px);background:#0e0e18;overflow:hidden}
-  .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 36%;display:block}
+  .hero-photo{position:relative;height:clamp(440px,74vh,880px);background:#0e0e18 url('hero-luke.jpg') no-repeat;background-size:cover;background-position:center 32%;overflow:hidden}
   .hero-photo::after{content:"";position:absolute;left:0;right:0;bottom:0;height:120px;background:linear-gradient(to bottom,rgba(8,8,20,0),var(--bg));pointer-events:none}
   .hero-text{padding:34px 0 4px}
   .hero .inner{position:relative;z-index:2}
@@ -226,9 +225,7 @@
 </nav>
 
 <header class="hero">
-  <div class="hero-photo">
-    <img src="hero-luke.jpg" alt="Luke Taleno in a Miami Heat varsity jacket against a bold red backdrop — America's Got Talent Golden Buzzer artist from Hialeah" />
-  </div>
+  <div class="hero-photo" role="img" aria-label="Luke Taleno in a Miami Heat varsity jacket against a bold red backdrop — America's Got Talent Golden Buzzer artist from Hialeah"></div>
   <div class="hero-text">
     <div class="wrap inner">
       <div class="eyebrow">America's Got Talent · Live Shows</div>
