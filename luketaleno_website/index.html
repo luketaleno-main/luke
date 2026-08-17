@@ -83,14 +83,16 @@
   nav .links a{color:var(--muted)} nav .links a:hover{color:var(--cyan)}
   nav .cta{background:var(--pink);color:#fff;padding:9px 18px;border-radius:999px;font-weight:800;font-size:.82rem}
   @media(max-width:780px){nav .links{display:none}}
-  @media(max-width:760px){.hero{min-height:82vh}.hero img{object-position:center 6%}}
+  @media(max-width:760px){.hero-photo{height:clamp(440px,64vh,720px)}.hero-photo img{object-position:center 30%}}
 
   /* HERO */
-  .hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;overflow:hidden}
-  .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%}
-  .hero .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,8,20,.35) 0%,rgba(8,8,20,.15) 40%,rgba(8,8,20,.92) 100%)}
-  .hero .inner{position:relative;z-index:2;padding-bottom:42px}
-  .hero h1{font-family:'Archivo Black',sans-serif;letter-spacing:-1px;font-size:clamp(3.2rem,11vw,7.2rem);text-shadow:0 0 30px rgba(255,33,150,.6)}
+  .hero{position:relative;background:var(--bg)}
+  .hero-photo{position:relative;height:clamp(440px,74vh,880px);background:#0e0e18;overflow:hidden}
+  .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 36%;display:block}
+  .hero-photo::after{content:"";position:absolute;left:0;right:0;bottom:0;height:120px;background:linear-gradient(to bottom,rgba(8,8,20,0),var(--bg));pointer-events:none}
+  .hero-text{padding:34px 0 4px}
+  .hero .inner{position:relative;z-index:2}
+  .hero h1{font-family:'Archivo Black',sans-serif;letter-spacing:-1px;font-size:clamp(3rem,9vw,6rem);text-shadow:0 0 30px rgba(255,33,150,.6)}
   .hero h1 .c{color:var(--cyan)}
   .hero .tag{font-weight:700;color:#fff;margin-top:6px;font-size:clamp(.95rem,2.4vw,1.2rem);letter-spacing:.04em}
   .stats{display:flex;gap:30px;margin:20px 0 8px;flex-wrap:wrap}
@@ -113,6 +115,9 @@
   .story p{font-size:1.12rem;max-width:64ch;margin-bottom:16px;color:#e7e8f2}
   .story .quote{font-family:Georgia,'Times New Roman',serif;font-style:italic;font-weight:500;font-size:clamp(1.35rem,3.4vw,2rem);color:#fff;line-height:1.4;border-left:4px solid var(--cyan);padding-left:22px;margin:8px 0 26px;text-transform:none}
   .story .quote span{display:block;font-family:'Inter',sans-serif;font-style:normal;font-size:.78rem;color:var(--cyan);letter-spacing:.14em;text-transform:uppercase;margin-top:12px;font-weight:700}
+  .story-grid{display:grid;grid-template-columns:1.25fr .9fr;gap:40px;align-items:center}
+  .story-img{width:100%;border-radius:16px;border:1px solid var(--line);object-fit:cover;object-position:center 18%;max-height:600px}
+  @media(max-width:820px){.story-grid{grid-template-columns:1fr}.story-img{max-height:460px;margin-top:8px}}
 
   /* VOTE */
   .vote{position:relative;background:linear-gradient(rgba(8,8,20,.78),rgba(8,8,20,.9)),url('gb.jpg') center 22%/cover no-repeat;text-align:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -221,17 +226,20 @@
 </nav>
 
 <header class="hero">
-  <img src="pensive.jpg" alt="Luke Taleno seated on stage steps in dramatic red light and smoke — America's Got Talent Golden Buzzer artist from Hialeah" />
-  <div class="scrim"></div>
-  <div class="wrap inner">
-    <div class="eyebrow">America's Got Talent · Live Shows</div>
-    <h1>VOTE FOR<br><span class="c">LUKE TALENO</span></h1>
-    <p class="tag">Live Show · <strong style="color:#fff">Tuesday, Aug 18</strong> · vote on NBC, the AGT app &amp; TikTok</p>
-    <div class="ctas">
-      <a href="#vote" class="btn btn-pink">How to vote &darr;</a>
-      <a href="#support" class="btn btn-cyan">Support Luke</a>
+  <div class="hero-photo">
+    <img src="hero-luke.jpg" alt="Luke Taleno in a Miami Heat varsity jacket against a bold red backdrop — America's Got Talent Golden Buzzer artist from Hialeah" />
+  </div>
+  <div class="hero-text">
+    <div class="wrap inner">
+      <div class="eyebrow">America's Got Talent · Live Shows</div>
+      <h1>VOTE FOR<br><span class="c">LUKE TALENO</span></h1>
+      <p class="tag">Live Show · <strong style="color:#fff">Tuesday, Aug 18</strong> · vote on NBC, the AGT app &amp; TikTok</p>
+      <div class="ctas">
+        <a href="#vote" class="btn btn-pink">How to vote &darr;</a>
+        <a href="#support" class="btn btn-cyan">Support Luke</a>
+      </div>
+      <p style="margin-top:18px;color:var(--muted);font-size:.85rem;letter-spacing:.02em">AGT Golden Buzzer · 84K TikTok · 42K Instagram · Hialeah, FL</p>
     </div>
-    <p style="margin-top:18px;color:var(--muted);font-size:.85rem;letter-spacing:.02em">AGT Golden Buzzer · 84K TikTok · 42K Instagram · Hialeah, FL</p>
   </div>
 </header>
 
@@ -295,10 +303,13 @@
 </section>
 
 <section class="story" id="story">
-  <div class="wrap">
-    <div class="sec-head"><div class="eyebrow">The Story</div><h2>From the <span class="c">seat</span> to the stage</h2></div>
-    <p>A year before his audition, Luke Taleno sat in the America's Got Talent crowd and told Simon Cowell to watch for him — he'd be back for a Golden Buzzer. He delivered: performing his original "Seat to Stage" and flipping mid-song into Spanish for Sofía Vergara, he earned Howie Mandel's first Golden Buzzer of the season.</p>
-    <p>Born in Cuba and raised in Hialeah, Florida, Luke is a bilingual artist and storyteller who turns real life into music — and he bet everything on it, quitting his 9-to-5 with no backup plan. "Seat to Stage" is out now on all platforms, and the Golden Buzzer sends him straight to the Live Shows.</p>
+  <div class="wrap story-grid">
+    <div>
+      <div class="sec-head"><div class="eyebrow">The Story</div><h2>From the <span class="c">seat</span> to the stage</h2></div>
+      <p>A year before his audition, Luke Taleno sat in the America's Got Talent crowd and told Simon Cowell to watch for him — he'd be back for a Golden Buzzer. He delivered: performing his original "Seat to Stage" and flipping mid-song into Spanish for Sofía Vergara, he earned Howie Mandel's first Golden Buzzer of the season.</p>
+      <p>Born in Cuba and raised in Hialeah, Florida, Luke is a bilingual artist and storyteller who turns real life into music — and he bet everything on it, quitting his 9-to-5 with no backup plan. "Seat to Stage" is out now on all platforms, and the Golden Buzzer sends him straight to the Live Shows.</p>
+    </div>
+    <img src="hialeah-luke.jpg" alt="Luke Taleno in a Hialeah #20 basketball jersey" class="story-img" />
   </div>
 </section>
 
