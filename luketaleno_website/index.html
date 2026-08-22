@@ -198,16 +198,16 @@
 <div id="voteSplash" role="dialog" aria-label="Vote for Luke Taleno on August 18th">
   <button id="voteSkip" aria-label="Close">&times;</button>
   <div class="vs-inner">
-    <div class="vs-kicker">America's Got Talent · Live Shows</div>
+    <div class="vs-kicker">America's Got Talent · Semifinalist</div>
     <div class="vs-big">VOTE</div>
     <div class="vs-name">LUKE TALENO</div>
-    <div class="vs-date">AUGUST 18<span>TH</span></div>
+    <div class="vs-date">SEMIFINALS</div>
     <div class="vs-app">on the NBC &amp; AGT app</div>
     <a href="#vote" class="vs-btn" id="voteEnter">How to vote &rarr;</a>
   </div>
 </div>
 
-<a href="#vote" class="votebar">Vote for Luke Taleno · August 18th · on the NBC &amp; AGT app</a>
+<a href="#vote" class="votebar" id="voteBar">Vote for Luke Taleno in the Semifinals — Tuesday, Sept 15</a>
 
 <nav>
   <div class="wrap">
@@ -220,7 +220,7 @@
       <a href="#follow">Follow</a>
       <a href="#press">Press</a>
     </div>
-    <a href="#vote" class="cta">Vote · Aug 18</a>
+    <a href="#vote" class="cta">Vote · Sept 15</a>
   </div>
 </nav>
 
@@ -228,9 +228,9 @@
   <div class="hero-photo" role="img" aria-label="Luke Taleno in a Miami Heat varsity jacket against a bold red backdrop — America's Got Talent Golden Buzzer artist from Hialeah"></div>
   <div class="hero-text">
     <div class="wrap inner">
-      <div class="eyebrow">America's Got Talent · Live Shows</div>
+      <div class="eyebrow">America's Got Talent · Semifinalist</div>
       <h1>VOTE FOR<br><span class="c">LUKE TALENO</span></h1>
-      <p class="tag">Live Show · <strong style="color:#fff">Tuesday, Aug 18</strong> · vote on NBC, the AGT app &amp; TikTok</p>
+      <p class="tag">He made the <strong style="color:#fff">Semifinals</strong> · Tuesday, Sept 15 · NBC, the AGT app &amp; TikTok</p>
       <div class="ctas">
         <a href="#vote" class="btn btn-pink">How to vote &darr;</a>
         <a href="#support" class="btn btn-cyan">Support Luke</a>
@@ -245,8 +245,8 @@
     <div class="eyebrow">America's Got Talent</div>
     <h2>How to <span style="color:var(--cyan)">vote</span> for Luke Taleno on AGT</h2>
     <div class="panel">
-      <span class="soon">Live Show · Tuesday, August 18</span>
-      <p style="margin:16px auto 0;max-width:600px;color:var(--muted)">Luke performs live on <strong style="color:#fff">Tuesday, Aug 18</strong>. Voting opens right after the show and closes <strong style="color:#fff">Wednesday at 7:00 AM ET</strong>. You get <strong style="color:#fff">up to 10 votes on every method</strong> — use them all for Luke on each one!</p>
+      <span class="soon">Semifinals · Tuesday, September 15</span>
+      <p style="margin:16px auto 0;max-width:600px;color:var(--muted)">Luke performs live in the <strong style="color:#fff">Semifinals on Tuesday, Sept 15</strong>. Voting opens right after the show and closes <strong style="color:#fff">Wednesday at 7:00 AM ET</strong>. You get <strong style="color:#fff">up to 10 votes on every method</strong> — use them all for Luke on each one!</p>
       <ol>
         <li><strong>NBC.com or the NBC app</strong> — sign in free (create an account if needed), find <strong>Luke Taleno</strong>, and cast all 10 votes.</li>
         <li><strong>America's Got Talent app</strong> — sign in and cast 10 more votes for Luke.</li>
@@ -394,6 +394,25 @@
     document.getElementById('voteSkip').addEventListener('click',function(){clearTimeout(t);close();});
     document.getElementById('voteEnter').addEventListener('click',function(){clearTimeout(t);close();});
     sp.addEventListener('click',function(e){ if(e.target===sp){clearTimeout(t);close();} });
+  })();
+
+  // ===== SEMIFINALS COUNTDOWN =====
+  // When the date is announced, set it below in this exact format (Eastern time), e.g.:
+  //   var SEMIS_DATE = "2026-08-26T20:00:00-04:00";
+  var SEMIS_DATE = "2026-09-15T20:00:00-04:00";
+  (function(){
+    var bar=document.getElementById('voteBar');
+    if(!bar) return;
+    function two(n){return (n<10?'0':'')+n;}
+    function tick(){
+      if(!SEMIS_DATE){ bar.textContent="Luke Taleno made the Semifinals — voting date coming soon"; return; }
+      var t=new Date(SEMIS_DATE).getTime()-Date.now();
+      if(isNaN(t)){ bar.textContent="Luke Taleno made the Semifinals — voting date coming soon"; return; }
+      if(t<=0){ bar.textContent="Semifinals are LIVE — vote for Luke Taleno now"; return; }
+      var d=Math.floor(t/86400000),h=Math.floor(t/3600000)%24,m=Math.floor(t/60000)%60,s=Math.floor(t/1000)%60;
+      bar.textContent="Semifinals vote in "+d+"d "+two(h)+"h "+two(m)+"m "+two(s)+"s  ·  Vote for Luke Taleno";
+    }
+    tick(); setInterval(tick,1000);
   })();
 </script>
 </body>
