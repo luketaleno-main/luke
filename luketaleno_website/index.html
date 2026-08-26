@@ -235,7 +235,7 @@
         <a href="#vote" class="btn btn-pink">How to vote &darr;</a>
         <a href="#support" class="btn btn-cyan">Support Luke</a>
       </div>
-      <p style="margin-top:18px;color:var(--muted);font-size:.85rem;letter-spacing:.02em">AGT Golden Buzzer · 84K TikTok · 42K Instagram · Hialeah, FL</p>
+      <p style="margin-top:18px;color:var(--muted);font-size:.85rem;letter-spacing:.02em">AGT Golden Buzzer · <span id="ttCount">89K</span> TikTok · <span id="igCount">53K</span> Instagram · Hialeah, FL</p>
     </div>
   </div>
 </header>
@@ -366,7 +366,7 @@
       <a href="https://www.tiktok.com/@luketaleno" target="_blank" rel="noopener">TikTok</a>
       <a href="https://linktr.ee/LukeTaleno" target="_blank" rel="noopener">Linktree</a>
     </div>
-    <div>Booking &amp; press: <a href="mailto:luketalenomedia@gmail.com" style="color:var(--cyan)">luketalenomedia@gmail.com</a></div>
+    <div>Booking &amp; press: <a href="mailto:info@luketaleno.com" style="color:var(--cyan)">info@luketaleno.com</a></div>
     <div style="margin-top:6px">Mailing address: Flamingo City, P.O. Box 133081, Hialeah, FL 33013</div>
     <div style="margin-top:10px;opacity:.7">© <span id="yr"></span> Luke Taleno. All rights reserved.</div>
   </div>
@@ -417,6 +417,15 @@
       bar.textContent="Semifinals vote in "+d+"d "+two(h)+"h "+two(m)+"m "+two(s)+"s  ·  Vote for Luke Taleno";
     }
     tick(); setInterval(tick,1000);
+  })();
+
+  // Live follower counts — auto-updates via /api/followers; falls back to the numbers in the HTML if unavailable
+  (function(){
+    function fmt(n){ if(n>=1e6) return (n/1e6).toFixed(1).replace(/\.0$/,'')+'M'; if(n>=1e3) return Math.round(n/1e3)+'K'; return String(n); }
+    fetch('/api/followers').then(function(r){return r.json();}).then(function(d){
+      if(d && d.tiktok){ var t=document.getElementById('ttCount'); if(t) t.textContent=fmt(d.tiktok); }
+      if(d && d.instagram){ var i=document.getElementById('igCount'); if(i) i.textContent=fmt(d.instagram); }
+    }).catch(function(){});
   })();
 </script>
 </body>
