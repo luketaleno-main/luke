@@ -158,6 +158,12 @@
   .ktform button{border:0;cursor:pointer;margin-top:4px}
 
   /* PRESS */
+  .hi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;margin-top:6px}
+  .hi-card{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:16px;padding:22px 20px}
+  .hi-card:hover{border-color:var(--pink)}
+  .hi-card .hi-tag{font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan)}
+  .hi-card h3{font-family:Inter;font-weight:800;font-size:1.08rem;margin:8px 0 6px;color:#fff}
+  .hi-card p{color:var(--muted);font-size:.9rem;margin:0}
   .press{display:flex;flex-wrap:wrap;gap:12px}
   .press a{padding:12px 18px;border:1px solid var(--line);border-radius:999px;font-weight:600;font-size:.92rem;color:var(--muted)}
   .press a:hover{border-color:var(--cyan);color:var(--cyan)}
@@ -188,7 +194,7 @@
   #voteSkip:hover{opacity:1}
   @media(prefers-reduced-motion:reduce){.vs-big,.vs-btn,.votebar,#voteSplash::before{animation:none}}
   /* SUPPORT / TIPS */
-  .support{background:linear-gradient(rgba(8,8,20,.74),rgba(8,8,20,.92)),url('cuba.jpg') center/cover no-repeat;border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center}
+  .support{background:linear-gradient(rgba(8,8,20,.72),rgba(8,8,20,.9)),url('luke-book-bg.jpg') 38% 28%/cover no-repeat;border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center}
   .support .note{max-width:620px;margin:0 auto 26px;color:var(--muted)}
   .tipgrid{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin-top:6px}
   .tipcard{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:18px;padding:24px;width:264px}
@@ -205,6 +211,7 @@
     <div class="links">
       <a href="#book">Book</a>
       <a href="#story">Story</a>
+      <a href="#highlights">Highlights</a>
       <a href="#watch">Watch</a>
       <a href="#follow">Follow</a>
       <a href="#press">Press</a>
@@ -235,19 +242,6 @@
     <p class="note">For performances, appearances, and private events.</p>
     <div style="text-align:center">
       <a href="mailto:info@luketaleno.com?subject=Booking%20inquiry%20%E2%80%94%20Luke%20Taleno" class="btn btn-pink">Request booking</a>
-    </div>
-    <div style="text-align:center;margin-top:36px">
-      <div class="eyebrow" style="margin-bottom:14px">Support the run · voting is free, tips are optional</div>
-      <div class="tipgrid">
-        <div class="tipcard">
-          <div class="tiphead">Cash App</div>
-          <a href="https://cash.app/$luketalenolive" target="_blank" rel="noopener" class="btn btn-cyan">$luketalenolive</a>
-        </div>
-        <div class="tipcard">
-          <div class="tiphead">Venmo</div>
-          <a href="https://venmo.com/u/luketaleno" target="_blank" rel="noopener" class="btn btn-cyan">@luketaleno</a>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -286,9 +280,9 @@
 <section class="story" id="story">
   <div class="wrap story-grid">
     <div>
-      <div class="sec-head"><div class="eyebrow">The Story</div><h2>From the <span class="c">seat</span> to the stage</h2></div>
-      <p>A year before his audition, Luke Taleno sat in the America's Got Talent crowd and told Simon Cowell to watch for him — he'd be back for a Golden Buzzer. He delivered: performing his original "Seat to Stage" and flipping mid-song into Spanish for Sofía Vergara, he earned Howie Mandel's first Golden Buzzer of the season.</p>
-      <p>Born in Cuba and raised in Hialeah, Florida, Luke is a bilingual artist and storyteller who turns real life into music — and he bet everything on it, quitting his 9-to-5 with no backup plan. "Seat to Stage" is out now on all platforms, and the Golden Buzzer sends him straight to the Live Shows.</p>
+      <div class="sec-head"><div class="eyebrow">The Story</div><h2>Real life, turned into <span class="c">music</span></h2></div>
+      <p>Born in Cuba and raised in Hialeah, Florida, Luke Taleno is a bilingual artist and storyteller who turns real life into songs. A childhood cancer survivor, he learned early that time is the one thing you can't get back — so he bet everything on his music, quitting his 9-to-5 with no backup plan.</p>
+      <p>That leap paid off. He earned Howie Mandel's Golden Buzzer on America's Got Talent and took his story to the national stage, then brought that momentum straight back home to Miami. Today he's building on it with new music, live shows, and community work across South Florida — freestyling, performing, and telling his city's story every chance he gets.</p>
     </div>
     <img src="hialeah-luke.jpg" alt="Luke Taleno in a Hialeah #20 basketball jersey" class="story-img" />
   </div>
@@ -331,12 +325,41 @@
   </div>
 </section>
 
+<section id="highlights">
+  <div class="wrap">
+    <div class="sec-head"><div class="eyebrow">On Stage &amp; In the Community</div><h2>Highlights &amp; <span class="c">partnerships</span></h2></div>
+    <div class="hi-grid">
+      <div class="hi-card">
+        <div class="hi-tag">Live</div>
+        <h3>FIFA Fan Fest</h3>
+        <p>Performed at the FIFA Fan Fest at Bayside in Miami during the Colombia vs. Portugal match.</p>
+      </div>
+      <div class="hi-card">
+        <div class="hi-tag">Live</div>
+        <h3>Milander 4th of July</h3>
+        <p>Performed at the city's Fourth of July celebration at Milander in Hialeah.</p>
+      </div>
+      <div class="hi-card">
+        <div class="hi-tag">Community</div>
+        <h3>Miami-Dade County Public Schools</h3>
+        <p>Partnering with MDCPS to visit schools and inspire students across the county.</p>
+      </div>
+      <div class="hi-card">
+        <div class="hi-tag">Honor</div>
+        <h3>Miami-Dade County Proclamation</h3>
+        <p>Honored with an official proclamation by Miami-Dade County on September 17.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="press">
   <div class="wrap">
     <div class="sec-head"><div class="eyebrow">Press</div><h2>In the <span class="c">news</span></h2></div>
     <div class="press">
       <a href="https://www.miamiherald.com/miami-com/miami-com-news/article316791752.html" target="_blank" rel="noopener">Miami Herald — Meet Miami rapper Luke Taleno</a>
       <a href="https://www.billboard.com/culture/tv-film/luke-taleno-cancer-survivor-golden-buzzer-agt-1236262956/" target="_blank" rel="noopener">Billboard</a>
+      <a href="https://www.billboard.com/culture/tv-film/rapper-luke-taleno-original-song-agt-semifinals-1236341392/" target="_blank" rel="noopener">Billboard — "The New Eminem"</a>
       <a href="https://www.nbcmiami.com/video/entertainment/south-florida-live/luke-taleno-is-appearing-tonight-on-americas-got-talent/3816140/" target="_blank" rel="noopener">NBC Miami</a>
       <a href="https://www.nbc.com/nbc-insider/howie-golden-buzzer-luke-taleno-agt" target="_blank" rel="noopener">NBC Insider</a>
       <a href="https://www.youtube.com/watch?v=E6MTIk7Vx7E" target="_blank" rel="noopener">The Golden Buzzer Moment</a>
