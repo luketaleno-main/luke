@@ -193,6 +193,23 @@
   #voteSkip{position:absolute;top:16px;right:20px;z-index:3;background:none;border:none;color:#fff;font-size:2.1rem;line-height:1;cursor:pointer;opacity:.65}
   #voteSkip:hover{opacity:1}
   @media(prefers-reduced-motion:reduce){.vs-big,.vs-btn,.votebar,#voteSplash::before{animation:none}}
+  /* EP PRE-SAVE SPLASH */
+  #epSplash{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;background:radial-gradient(circle at 50% 36%,#1a0c2f,#08081a 75%);transition:transform .7s cubic-bezier(.7,0,.15,1),opacity .7s ease}
+  #epSplash.hide{transform:translateY(-100%);opacity:0;pointer-events:none}
+  #epSkip{position:absolute;top:16px;right:20px;z-index:3;background:none;border:none;color:#fff;font-size:2.1rem;line-height:1;cursor:pointer;opacity:.7}
+  #epSkip:hover{opacity:1}
+  .eps-cover{width:min(78vw,380px);border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.1)}
+  .eps-kicker{margin-top:22px;color:var(--cyan);font-weight:800;letter-spacing:.22em;text-transform:uppercase;font-size:.82rem}
+  .eps-btn{display:inline-block;margin-top:14px;background:var(--pink);color:#fff;font-weight:800;padding:15px 34px;border-radius:999px;text-decoration:none;box-shadow:0 12px 40px rgba(255,33,150,.5)}
+  /* EP PROMO SECTION */
+  .epsec{background:linear-gradient(180deg,#0c0820,var(--bg));border-bottom:1px solid var(--line)}
+  .ep-grid{display:grid;grid-template-columns:.8fr 1fr;gap:42px;align-items:center}
+  .ep-cover{width:100%;max-width:420px;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.08)}
+  .countdown{display:flex;gap:14px;margin:20px 0 24px;flex-wrap:wrap}
+  .countdown>div{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:14px;padding:14px 10px;min-width:74px;text-align:center}
+  .countdown span{display:block;font-family:'Anton',sans-serif;font-size:2rem;color:#fff;line-height:1}
+  .countdown small{color:var(--muted);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase}
+  @media(max-width:820px){.ep-grid{grid-template-columns:1fr}.ep-cover{max-width:300px;margin:0 auto}}
   /* SUPPORT / TIPS */
   .support{background:linear-gradient(rgba(8,8,20,.6),rgba(8,8,20,.82)),url('luke-book-bg.jpg') 38% 12%/cover no-repeat;border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center;min-height:60vh;display:flex;align-items:center}
   .support .note{max-width:620px;margin:0 auto 26px;color:var(--muted)}
@@ -206,10 +223,19 @@
 </head>
 <body>
 
+<div id="epSplash" role="dialog" aria-label="The American Dream — Pre-Save">
+  <button id="epSkip" aria-label="Close">&times;</button>
+  <img src="american-dream-cover.jpg" alt="Luke Taleno — The American Dream EP cover" class="eps-cover" />
+  <div class="eps-kicker">New EP · Coming Soon</div>
+  <a href="https://distrokid.com/hyperfollow/luketaleno1/the-american-dream-2?ref=release" target="_blank" rel="noopener" class="eps-btn" id="epEnter">Pre-Save The American Dream &rarr;</a>
+  <a href="https://music.apple.com/us/album/the-american-dream-single/6818408692" target="_blank" rel="noopener" class="eps-btn" style="background:#fff;color:#111;margin-top:12px">Listen on Apple Music</a>
+</div>
+
 <nav>
   <div class="wrap">
     <div class="brand">LUKE <b>TALENO</b></div>
     <div class="links">
+      <a href="#ep">EP</a>
       <a href="#book">Book</a>
       <a href="#story">Story</a>
       <a href="#highlights">Highlights</a>
@@ -236,6 +262,25 @@
     </div>
   </div>
 </header>
+
+<section class="epsec" id="ep">
+  <div class="wrap ep-grid">
+    <img src="american-dream-cover.jpg" alt="Luke Taleno — The American Dream EP cover" class="ep-cover" />
+    <div>
+      <div class="eyebrow">New EP</div>
+      <h2>The American <span class="c">Dream</span></h2>
+      <p class="lead" style="margin:10px 0 4px">Luke Taleno's new EP — a celebration of his Cuban roots, his Miami upbringing, and the opportunities his family came to America searching for. Original records built on purpose, resilience, and relentless work.</p>
+      <div class="countdown" id="epCountdown" aria-label="Countdown to release">
+        <div><span id="cdD">00</span><small>Days</small></div>
+        <div><span id="cdH">00</span><small>Hrs</small></div>
+        <div><span id="cdM">00</span><small>Min</small></div>
+        <div><span id="cdS">00</span><small>Sec</small></div>
+      </div>
+      <a href="https://distrokid.com/hyperfollow/luketaleno1/the-american-dream-2?ref=release" target="_blank" rel="noopener" class="btn btn-pink" id="epCta">Pre-Save Now</a>
+      <a href="https://music.apple.com/us/album/the-american-dream-single/6818408692" target="_blank" rel="noopener" class="btn btn-cyan" style="margin-left:10px">Apple Music</a>
+    </div>
+  </div>
+</section>
 
 <section class="support" id="book">
   <div class="wrap">
@@ -391,6 +436,43 @@
 
 <script>
   document.getElementById('yr').textContent=new Date().getFullYear();
+
+  // ===== THE AMERICAN DREAM — EP release date =====
+  // Set the exact release date/time below (Eastern time), e.g. "2026-10-31T00:00:00-04:00"
+  var AD_RELEASE = "2026-10-06T00:00:00-04:00";
+
+  // EP pre-save splash (shows once per visit, auto-closes after 8s)
+  (function(){
+    var sp=document.getElementById('epSplash');
+    if(!sp) return;
+    if(sessionStorage.getItem('epSplashSeen')){ sp.parentNode.removeChild(sp); return; }
+    document.body.style.overflow='hidden';
+    function close(){ sp.classList.add('hide'); document.body.style.overflow=''; sessionStorage.setItem('epSplashSeen','1'); setTimeout(function(){ if(sp&&sp.parentNode) sp.parentNode.removeChild(sp); },800); }
+    var tmr=setTimeout(close,8000);
+    document.getElementById('epSkip').addEventListener('click',function(){clearTimeout(tmr);close();});
+    document.getElementById('epEnter').addEventListener('click',function(){ clearTimeout(tmr); setTimeout(close,150); });
+    sp.addEventListener('click',function(e){ if(e.target===sp){clearTimeout(tmr);close();} });
+  })();
+
+  // EP release countdown
+  (function(){
+    var el=document.getElementById('epCountdown'); if(!el) return;
+    function two(n){return (n<10?'0':'')+n;}
+    function tick(){
+      var t=new Date(AD_RELEASE).getTime()-Date.now();
+      if(isNaN(t)||t<=0){
+        el.innerHTML='<div style="min-width:auto;padding:14px 22px"><span style="font-size:1.5rem">OUT NOW</span><small>Available everywhere</small></div>';
+        var c=document.getElementById('epCta'); if(c){ c.textContent='Listen Now'; }
+        return;
+      }
+      var d=Math.floor(t/86400000),h=Math.floor(t/3600000)%24,m=Math.floor(t/60000)%60,s=Math.floor(t/1000)%60;
+      document.getElementById('cdD').textContent=two(d);
+      document.getElementById('cdH').textContent=two(h);
+      document.getElementById('cdM').textContent=two(m);
+      document.getElementById('cdS').textContent=two(s);
+    }
+    tick(); setInterval(tick,1000);
+  })();
 
   // Live follower counts — auto-updates via /api/followers; falls back to the numbers in the HTML if unavailable
   (function(){
