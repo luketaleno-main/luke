@@ -201,6 +201,10 @@
   .eps-cover{width:min(78vw,380px);border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.1)}
   .eps-kicker{margin-top:22px;color:var(--cyan);font-weight:800;letter-spacing:.22em;text-transform:uppercase;font-size:.82rem}
   .eps-btn{display:inline-block;margin-top:14px;background:var(--pink);color:#fff;font-weight:800;padding:15px 34px;border-radius:999px;text-decoration:none;box-shadow:0 12px 40px rgba(255,33,150,.5)}
+  .eps-links{margin-top:16px;display:flex;gap:18px;flex-wrap:wrap;justify-content:center}
+  .eps-links a{color:var(--cyan);font-weight:700;font-size:.92rem;text-decoration:none;border-bottom:1px solid rgba(0,230,246,.4);padding-bottom:2px}
+  .streamrow{display:flex;gap:12px;flex-wrap:wrap;margin-top:4px}
+  .streamrow .btn{box-shadow:none}
   /* EP PROMO SECTION */
   .epsec{background:linear-gradient(180deg,#0c0820,var(--bg));border-bottom:1px solid var(--line)}
   .ep-grid{display:grid;grid-template-columns:.8fr 1fr;gap:42px;align-items:center}
@@ -223,12 +227,16 @@
 </head>
 <body>
 
-<div id="epSplash" role="dialog" aria-label="The American Dream — Pre-Save">
+<div id="epSplash" role="dialog" aria-label="The American Dream — Out Now">
   <button id="epSkip" aria-label="Close">&times;</button>
   <img src="american-dream-cover.jpg" alt="Luke Taleno — The American Dream EP cover" class="eps-cover" />
-  <div class="eps-kicker">New EP · Coming Soon</div>
-  <a href="https://distrokid.com/hyperfollow/luketaleno1/the-american-dream-2?ref=release" target="_blank" rel="noopener" class="eps-btn" id="epEnter">Pre-Save The American Dream &rarr;</a>
-  <a href="https://music.apple.com/us/album/the-american-dream-single/6818408692" target="_blank" rel="noopener" class="eps-btn" style="background:#fff;color:#111;margin-top:12px">Listen on Apple Music</a>
+  <div class="eps-kicker">Out Now</div>
+  <a href="https://open.spotify.com/album/5ZGYvoCrFuQWhlebuAX4RU" target="_blank" rel="noopener" class="eps-btn" id="epEnter">Stream The American Dream &rarr;</a>
+  <div class="eps-links">
+    <a href="https://music.apple.com/us/album/the-american-dream-single/6818408692" target="_blank" rel="noopener">Apple Music</a>
+    <a href="https://www.youtube.com/watch?v=UJ58jDgR9zM&amp;list=OLAK5uy_kGsC6KDNumAVI1LJ0yfRNs3hPJpf6IoEM" target="_blank" rel="noopener">YouTube</a>
+    <a href="https://music.amazon.com/albums/B0HLRK2RKJ" target="_blank" rel="noopener">Amazon Music</a>
+  </div>
 </div>
 
 <nav>
@@ -283,8 +291,12 @@
         <div><span id="cdM">00</span><small>Min</small></div>
         <div><span id="cdS">00</span><small>Sec</small></div>
       </div>
-      <a href="https://distrokid.com/hyperfollow/luketaleno1/the-american-dream-2?ref=release" target="_blank" rel="noopener" class="btn btn-pink" id="epCta">Pre-Save Now</a>
-      <a href="https://music.apple.com/us/album/the-american-dream-single/6818408692" target="_blank" rel="noopener" class="btn btn-cyan" style="margin-left:10px">Apple Music</a>
+      <div class="streamrow">
+        <a href="https://open.spotify.com/album/5ZGYvoCrFuQWhlebuAX4RU" target="_blank" rel="noopener" class="btn btn-pink">Spotify</a>
+        <a href="https://music.apple.com/us/album/the-american-dream-single/6818408692" target="_blank" rel="noopener" class="btn btn-cyan">Apple Music</a>
+        <a href="https://www.youtube.com/watch?v=UJ58jDgR9zM&amp;list=OLAK5uy_kGsC6KDNumAVI1LJ0yfRNs3hPJpf6IoEM" target="_blank" rel="noopener" class="btn btn-cyan">YouTube</a>
+        <a href="https://music.amazon.com/albums/B0HLRK2RKJ" target="_blank" rel="noopener" class="btn btn-cyan">Amazon Music</a>
+      </div>
     </div>
   </div>
 </section>
